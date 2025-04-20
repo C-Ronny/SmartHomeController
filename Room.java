@@ -13,6 +13,11 @@ public class Room{
     this.devices = new ArrayList<Device>();
   }
 
+  public Room(){
+    this.name = "";
+    this.devices = new ArrayList<Device>();
+  }
+
   // Accessor methods
 
   // Return the list of devices.

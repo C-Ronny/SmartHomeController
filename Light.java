@@ -18,9 +18,9 @@ public class Light implements Device{
   public void turnOff(){
     if (isOn){
       isOn = false;
-      System.out.println(this.name + "Light has been turned off.");
+      System.out.println(this.name + " has been turned off.");
     } else {
-      System.out.println(this.name + "Light is already off.");
+      System.out.println(this.name + " is already off.");
     }
   }
 
@@ -29,9 +29,9 @@ public class Light implements Device{
   public void turnOn(){
     if (!isOn){
       isOn = true;
-      System.out.println(this.name + "Light has been turned on.");
+      System.out.println(this.name + " has been turned on.");
     } else {
-      System.out.println(this.name + "Light is already on.");
+      System.out.println(this.name + " is already on.");
     }
   }
 

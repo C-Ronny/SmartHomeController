@@ -1,22 +1,36 @@
 public class SmartHomeController{
 
-
   public static void main (String[] args){
-    
-    // Create a room
-    Room room = new Room("Living Room");
 
-    // Create and add a light
-    Device Light = new Light("LED Light");
-    room.addDevice(Light);
+    Controller controller = Controller.getInstance();
 
-    // Test individaul device control
-    Light.turnOff();
-    Light.turnOn();
-    Light.turnOff();
+    // Create a new room
+    Room livingRoom = new Room("Living Room");
 
-    // Test-room level control
-  
+    // Add a room to the controller
+    controller.addRoom(livingRoom);
+
+    // Create a new light device
+    Light light = new Light("LED");
+
+    livingRoom.addDevice(light);
+
+    // Test individual device control
+    System.out.println("\nTesting individual device control:");
+    light.turnOn();
+    light.turnOff();
+
+    // Test room-level control
+    System.out.println("\nTesting room-level control:");
+    livingRoom.turnOnAll();
+    livingRoom.turnOffAll();
+
+    // Test controller
+    System.out.println("\nTesting controller:");
+    controller.addRoom(livingRoom);
+    controller.controlDevice(light, true);  // Turn on
+    controller.controlDevice(light, false); // Turn off
+
   }
 
 }

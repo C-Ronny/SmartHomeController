@@ -4,12 +4,13 @@ public class Room{
 
   // Instance Variables
   private String name;
-  ArrayList<Device> devices = new ArrayList<Device>();
-  public int deviceCount = 0;
+  private ArrayList<Device> devices = new ArrayList<Device>();
+  private int deviceCount = 0;
 
   // Constructor
   public Room(String name){
     this.name = name;
+    this.devices = new ArrayList<Device>();
   }
 
   // Accessor methods
@@ -18,13 +19,18 @@ public class Room{
   public void getDevices(){
     System.out.println("Devices:"); 
     for (int i=0; i<devices.size(); i++){
-      System.out.println(devices.get(i).getName());
+      System.out.println(i + ". " + devices.get(i).getName());
     }
   }
 
-  // Return the room’s name.
+  // Return the room’s name
   public String getName(){
     return this.name;
+  }
+
+  // Return the number of devices in the room
+  public String getDeviceCount(){
+    return (deviceCount == 0) ? "There are no devices in the " + getName() + " room." : "There are " + deviceCount + " devices in the room.";
   }
 
 
@@ -40,27 +46,26 @@ public class Room{
 
 
   // Add a device to the room.
-  public void addDevice(String name){
-    devices.add(new Device(name));
+  public void addDevice(Device device){
+    devices.add(device);
     deviceCount++;
-    System.out.println("New Device Successfully added to the room.");
-    getDevices();
+    System.out.println(device.getName() + " successfully added to the " + getName()  + " room.");
   } 
   
   // Turn on all devices in the room.
   public void turnOnAll(){
-    for(int i=0; i<deviceCount; i++){
-      devices.get(i).turnOn();
+    for(Device device : devices){
+      device.turnOn();
     }
-    System.out.println("All devices in the room have been turned on.");
+    System.out.println("All devices in " + getName() + " have been turned on.");
   }
 
   //  Turn off all devices in the room.
   public void turnOffAll(){
-    for(int i=0;i<deviceCount;i++){
-      devices.get(i).turnOff();
+    for(Device device : devices){
+      device.turnOff();
     }
-    System.out.println("All devices in the room have been turned off.");
+    System.out.println("All devices in " + getName() + " have been turned off.");
   }
 
   

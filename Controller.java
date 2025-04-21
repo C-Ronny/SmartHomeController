@@ -1,3 +1,8 @@
+/* Singleton Design Pattern Implementation
+ * Controller Class
+ * Uses singleton pattern to ensure only one instance of the controller exists
+ */
+
 import java.util.ArrayList;
 
 public class Controller{
